@@ -33,5 +33,4 @@ class MainController extends Controller {
         $product = new Product($id);
         return view('product', compact('product'));
     }
-
 }

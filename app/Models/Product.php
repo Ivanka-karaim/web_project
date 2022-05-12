@@ -10,13 +10,15 @@ class Product {
         $products =json_decode(file_get_contents('../storage/app/public/allProducts.json'), true);
         $index = array_search($id, array_column($products, "id"));
         if($index === false) {
-           return null;
+           $this->id = 0;
         }
-        $product = $products[$index];
-        $this->id = $product['id'];
-        $this->title = $product['title'];
-        $this->category=$product['category'];
-        $this->description = $product['description'];
-        $this->price = $product['price'];
+        else {
+            $product = $products[$index];
+            $this->id = $product['id'];
+            $this->title = $product['title'];
+            $this->category = $product['category'];
+            $this->description = $product['description'];
+            $this->price = $product['price'];
+        }
     }
 }

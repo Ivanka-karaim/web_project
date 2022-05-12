@@ -1,7 +1,7 @@
 @extends('layout.app')
-@section('title', '{{$product->title}}')
+@section('title', $product->title)
 @section('content')
-    @if($product)
+    @if($product->id)
         <div class="my_products">
             <h1>{{$product->title}}</h1>
             <h2>Ціна {{$product->price}}</h2>

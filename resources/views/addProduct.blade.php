@@ -30,7 +30,7 @@
             <input type="text" class="form-control"  name="description" required>
         </div>
         <div class="col-12">
-            <button type="submit">Створити новий товар</button>
+            <button type="submit">Створити новий продукт</button>
         </div>
     </form>
 @endsection
