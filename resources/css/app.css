@@ -13,7 +13,7 @@
 
 }
 .container{
-    margin: 0 100px;
+    margin: 0 50px;
 }
 .header_class{
     height:100px;
@@ -54,6 +54,7 @@ h1{
 }
 .my_products{
     margin: 30px 0;
+    align-items: center;
 
 }
 .form_block{
@@ -74,9 +75,13 @@ h1{
     color: red;
 }
 .button{
-    width: 100px;
+    width: 300px;
     height: 30px;
     font-size: 20px;
     color: white;
-    background-color: blue;
+    background-color: grey;
+
+}
+. button a{
+    color: white;
 }

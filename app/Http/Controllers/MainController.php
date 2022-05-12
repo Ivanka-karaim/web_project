@@ -5,29 +5,27 @@ use App\Models\Product;
 use App\Models\Products;
 use Illuminate\Http\Request;
 class MainController extends Controller {
+
+    protected $categories=['door'=>'Двері', 'washer'=>'Душові кабіни', 'mirror'=>'Дзеркала', 'window'=>'Вікна'];
     public function index()
     {
         return view('index');
     }
     public function categories() {
-        $categories = Category::getAll();
-        return view('allProducts', compact('categories'));
+        return view('allProducts', ['categories'=>$this->categories]);
     }
     public function productsByCategory($category) {
         $products = Products::getProduct($category);
-        $name_category = Category::getAll()[$category];
-        $key_category = key(Category::getAll());
-        return view('products', compact(['products', 'name_category','key_category']));
+        $name_category = $this->categories[$category];
+        return view('products', compact(['products', 'name_category','category']));
     }
     public function addProduct() {
-        $categories = Category::getAll();
-        return view('addProduct', compact('categories'));
+        return view('addProduct', ['categories'=>$this->categories]);
     }
     public function addProductPost(Request $request){
-        $categories = Category::getAll();
-        Products::createPost($request->category, $request->description, $request->title, $request->price);
+        Products::createProduct($request->category, $request->description, $request->title, $request->price);
         return response()->view('addProduct', [
-            "categories" => $categories,
+            "categories" => $this->categories,
             "status" => true
         ], 200);
     }

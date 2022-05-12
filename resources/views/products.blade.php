@@ -8,7 +8,8 @@
                 <h2>{{$product['title']}}</h2>
                 <h2>Ціна {{$product['price']}}</h2>
                     <div class="button">
-                <a  href="{{url('/all_products/'.$key_category.'/'.$product['id'])}}">Переглянути детальніше</a></div>
+                    <a  class="button" href="{{url('/all_products/'.$category.'/'.$product['id'])}}">Переглянути детальніше</a>
+                    </div>
                 </div>
             @endforeach
     @else
